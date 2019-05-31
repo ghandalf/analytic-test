@@ -54,7 +54,7 @@ public class TestAnalyticProviderProd {
 
 	@Test
 	public void loadPardotTrackingActiveId() {
-		String expected = "75442";
+		String expected = AnalyticProvider.PARDOT_TRACKING_ACTIVE_ID;
 		String actual = provider.getPardotTrackingActiveId();
 		Assert.assertEquals(expected, actual);
 		
@@ -65,7 +65,7 @@ public class TestAnalyticProviderProd {
 
 	@Test
 	public void loadPardotTrackingCodeId() {
-		String expected = "1854";
+		String expected = AnalyticProvider.PARDOT_TRACKING_CODE_ID;
 		String actual = provider.getPardotTrackingCodeId();
 		Assert.assertEquals(expected, actual);
 		

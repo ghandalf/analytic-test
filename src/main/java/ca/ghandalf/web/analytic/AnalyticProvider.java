@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class AnalyticProvider {
 
-	public static final String GOOGLE_ANALYTIC_ID = "UA-49571853-1";
-	public static final String GOOGLE_TAG_MANAGEMENT_ID = "23001009";
-	public static final String PARDOT_TRACKING_ACTIVE_ID = "75442";
-	public static final String PARDOT_TRACKING_CODE_ID = "1854";
+	public static final String GOOGLE_ANALYTIC_ID = "";
+	public static final String GOOGLE_TAG_MANAGEMENT_ID = "";
+	public static final String PARDOT_TRACKING_ACTIVE_ID = "";
+	public static final String PARDOT_TRACKING_CODE_ID = "";
 	
 	/**
 	 * The default value will be provided for other environment then PROD
@@ -29,7 +29,7 @@ public class AnalyticProvider {
 
 	public String getGoogleAnalyticId() {
 //		if ( this.googleAnalyticId == null ) {
-//			this.googleAnalyticId = "UA-49571853-1";
+//			this.googleAnalyticId = "";
 //		}
 		return googleAnalyticId;
 	}
