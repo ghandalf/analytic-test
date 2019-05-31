@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="10 minutes">
+	
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	
+	<property name="application" value="analytic" />
+	
+	<property name="log.encoder" value="UTF-8" />
+	<property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %thread %logger{36} : [%file:%line] - %msg%n" />
+	
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+			<charset>${log.encoder}</charset>
+		</encoder>
+	</appender>
+	
+	<!-- Log reminder: level=TRACE, DEBUG, INFO, WARN, ERROR, ALL or OFF -->
+	
+	<logger name="ca.ghandalf.web" level="info" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+</configuration>

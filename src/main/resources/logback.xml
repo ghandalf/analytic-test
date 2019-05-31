@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Configuration use to test the logback behavior -->
+<!-- <configuration debug="true" scan="true" scanPeriod="2 minutes"> -->
+<configuration scan="true" scanPeriod="10 minutes">
+
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	
+    <property name="application" value="analytic" /> 
+	<property name="backend.file" value="${application}-backend" />
+	<property name="frontend.file" value="${application}-frontend" />
+	<property name="spring.file" value="spring-boot" />
+
+	<property name="log.encoder" value="UTF-8" />
+	<property name="rolling.pattern" value="%d{yyyy-MM-dd}-%i" />
+	<property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %thread %logger{36} : [%file:%line] - %msg%n" />
+	<!-- At deploy time: 
+            on a server a sminlink must be created 
+            on local machine log dir will be created under the project or /dist -->
+	<property name="log.path" value="log" />
+
+    <!-- We keep the files indefinitely -->
+	<property name="max.retention.days" value="0" />
+	<property name="max.file.size" value="200MB" />
+    <property name="max.size.cap" value="400MB" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+			<charset>${log.encoder}</charset>
+		</encoder>
+	</appender>
+
+	<appender name="SPRING-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/${spring.file}.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+			<charset>${log.encoder}</charset>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/${spring.file}.${rolling.pattern}.log.gz</fileNamePattern>
+            <maxFileSize>${max.file.size}</maxFileSize>
+			<maxHistory>${max.retention.days}</maxHistory>
+            <totalSizeCap>${max.size.cap}</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="BACKEND-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/${backend.file}.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+			<charset>${log.encoder}</charset>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/${backend.file}.${rolling.pattern}.log.gz</fileNamePattern>
+            <maxFileSize>${max.file.size}</maxFileSize>
+			<maxHistory>${max.retention.days}</maxHistory>
+            <totalSizeCap>${max.size.cap}</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="FRONTEND-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/${frontend.file}.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+			<charset>${log.encoder}</charset>
+		</encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/${frontend.file}.${rolling.pattern}.log.gz</fileNamePattern>
+            <maxFileSize>${max.file.size}</maxFileSize>
+			<maxHistory>${max.retention.days}</maxHistory>
+            <totalSizeCap>${max.size.cap}</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+
+	<!-- Log reminder: level=TRACE, DEBUG, INFO, WARN, ERROR, ALL or OFF -->
+
+    <!-- Spring logs -->
+    <logger name="org.springframework" level="info" additivity="false">
+		<appender-ref ref="SPRING-FILE" />
+        <appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="org.spring" level="info" additivity="false">
+		<appender-ref ref="SPRING-FILE" />
+        <appender-ref ref="STDOUT" />
+	</logger>
+    <!-- Use to avoid logs pollution on backend and frontend file -->
+    <logger name="org" level="info" additivity="false">
+		<appender-ref ref="SPRING-FILE" />
+        <appender-ref ref="STDOUT" />
+	</logger>
+ 
+	<logger name="ca.ghandalf" level="info" additivity="false">
+		<appender-ref ref="BACKEND-FILE" />
+        <appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="ca.ghandalf.web" level="info" additivity="false">
+		<appender-ref ref="FRONTEND-FILE" />
+        <appender-ref ref="STDOUT" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
