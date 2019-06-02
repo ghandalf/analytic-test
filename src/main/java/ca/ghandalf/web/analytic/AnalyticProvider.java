@@ -29,7 +29,7 @@ public class AnalyticProvider {
 
 	public String getGoogleAnalyticId() {
 //		if ( this.googleAnalyticId == null ) {
-//			this.googleAnalyticId = "";
+//			this.googleAnalyticId = "NotReadFromFile";
 //		}
 		return googleAnalyticId;
 	}

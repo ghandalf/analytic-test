@@ -1,7 +1,8 @@
 # We are on a parent project avoid the sub project directories
 .DS_Store
 **/.DS_Store
-
+log/**
+log
 dist/**
 node/**
 zremoved

@@ -7,7 +7,7 @@ set current_dir=%cd%
 set app_name=analytic-test
 set dist_dir=%tmp%\dist
 
-set jar_file=analytic-test-1.0-SNAPSHOT.jar
+set war_file=analytic-test-1.0-SNAPSHOT.war
 set withtests=n
 set tests=-DskipTests
 
@@ -23,7 +23,15 @@ if /i [%command%] == [] goto usage
 FOR %%a in (-c c compile) DO IF /i %command%==%%a goto compile
 FOR %%a in (-r r run) DO IF /i %command%==%%a goto run
 FOR %%a in (-s s stop) DO IF /i %command%==%%a goto stop
+FOR %%a in (-cr cr) DO IF /i %command%==%%a goto compile.run
 FOR %%a in (-h h help) DO IF /i %command%==%%a goto usage
+
+:compile.run
+echo "Compile and run as been called..."
+set compile_run=%true%
+goto compile
+goto end
+
 
 :compile
 echo "Compile has been called..."
@@ -33,13 +41,18 @@ set /P withtests=Compile With the tests (Y/N) default[N]?
 if /I %withtests% EQU Y set tests=
 if /I %withtests% EQU N set tests=-DskipTests
 call mvn clean install %tests%
+
+if %compile_run% (
+	goto run
+)
+
 goto end
 rem End compile
 
 :run
 echo "Run has been called from path: %cd%."
-mvn spring-boot:run
-java -jar .\target\%jar_file% 
+rem mvn spring-boot:run
+java -jar -Dspring.profiles.active=prod .\target\%war_file% 
 goto end
 rem End run
 
