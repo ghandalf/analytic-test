@@ -25,7 +25,7 @@ public class ProviderServlet extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		logger.info("\n ......... doPost called ...............\n"); 
+		logger.info("\n ......... doPost called ..............."); 
 		doGet(request,response);
 	}
 	

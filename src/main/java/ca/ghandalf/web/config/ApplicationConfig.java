@@ -1,7 +1,6 @@
 package ca.ghandalf.web.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -9,7 +8,6 @@ import ca.ghandalf.web.analytic.ProviderServlet;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"ca.ghandalf"})
 public class ApplicationConfig {
 
 	@Autowired
