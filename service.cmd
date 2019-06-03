@@ -7,7 +7,7 @@ set current_dir=%cd%
 set app_name=analytic-test
 set dist_dir=%tmp%\dist
 
-set war_file=analytic-test-1.0.1.war
+set war_file=analytic-test-1.2.0.war
 set withtests=n
 set tests=-DskipTests
 
