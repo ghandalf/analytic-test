@@ -8,11 +8,17 @@
 <body>
 	<h3>
 		<div style="display: inline-block; position: fixed; top: 0; bottom: 0; left: 0; right: 0; width: 400px; height: 200px; margin: auto; background-color: #f3f3f3;">
-			<a href="analytic">Provider for today: ${now}</a>
+			<div>
+				<a href="analytic">Analytic now: ${now}</a>
+				<br>
+				GoogleAnalyticId: ${googleAnalyticId}
+				<br>
+				GoogleTagManagementId: ${googleTagManagementId}
+			</div>
 			<br>
-			GoogleAnalyticId: ${googleAnalyticId}
-			<br>
-			GoogleTagManagementId: ${googleTagManagementId}
+			<div>
+				<a href="provider">Provider now: ${now}</a>
+			</div>
 		</div>
 
 	</h3>

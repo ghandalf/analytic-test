@@ -80,30 +80,30 @@
 	<!-- Log reminder: level=TRACE, DEBUG, INFO, WARN, ERROR, ALL or OFF -->
 
     <!-- Spring logs -->
-    <logger name="org.springframework" level="debug" additivity="false">
+    <logger name="org.springframework" level="info" additivity="false">
 		<appender-ref ref="SPRING-FILE" />
         <appender-ref ref="STDOUT" />
 	</logger>
-	<logger name="org.spring" level="debug" additivity="false">
+	<logger name="org.spring" level="info" additivity="false">
 		<appender-ref ref="SPRING-FILE" />
         <appender-ref ref="STDOUT" />
 	</logger>
-	<logger name="javax.servlet" level="debug" additivity="false">
+	<logger name="javax.servlet" level="info" additivity="false">
 		<appender-ref ref="SPRING-FILE" />
         <appender-ref ref="STDOUT" />
 	</logger>
 	
-\	<logger name="ca.ghandalf" level="debug" additivity="false">
+\	<logger name="ca.ghandalf" level="info" additivity="false">
 		<appender-ref ref="BACKEND-FILE" />
         <appender-ref ref="STDOUT" />
 	</logger>
 	
-	<logger name="ca.ghandalf.web" level="debug" additivity="false">
+	<logger name="ca.ghandalf.web" level="info" additivity="false">
 		<appender-ref ref="FRONTEND-FILE" />
         <appender-ref ref="STDOUT" />
 	</logger>
 
-	<root level="debug">
+	<root level="info">
 		<appender-ref ref="STDOUT" />
 	</root>
 

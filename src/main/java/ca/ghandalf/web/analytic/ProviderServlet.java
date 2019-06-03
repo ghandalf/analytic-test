@@ -47,22 +47,6 @@ public class ProviderServlet extends HttpServlet {
 		logger.info(".........request.getAttribut(pardotTrackingActiveId): {}", request.getAttribute("pardotTrackingActiveId"));
 		logger.info(".........request.getAttribut(pardotTrackingCodeId): {}\n", request.getAttribute("pardotTrackingCodeId"));
 
-		request.getRequestDispatcher("view/provider.jsp").forward(request, response);
-//		request.getRequestDispatcher("view/provider.jsp").forward(request, response);
-//		request.getRequestDispatcher("jsp/analytic/provider.jsp").forward(request, response);
-//		response.sendRedirect("jsp/analytic/provider.jsp");
-		
-//		request.getRequestDispatcher("provider.html").forward(request, response);
-//		response.getWriter().println(htmlContent());
+		request.getRequestDispatcher("WEB-INF/view/provider.jsp").forward(request, response);
 	}
-	
-	private String htmlContent() {
-		return "<div id=\"data\" >"
-				+ "<script type=\"text/javascript\">\r\n"
-				+ " var googleAnalyticId=" + this.provider.getGoogleAnalyticId()
-				+ "        	console.log(\"googleAnalyticId is :: \" + googleAnalyticId);\r\n" + 
-				"    	</script>"
-				+ "</div>";
-	}
-	
 }

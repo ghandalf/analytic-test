@@ -30,13 +30,21 @@ public class AnalyticController {
 	}
 
 	@RequestMapping("/analytic")
-	public String provider(Model model) {
-		logger.info("\t .......... provider has been called....");
+	public String analytic(Model model) {
+		logger.info("\t .......... analytic has been called....");
 		model.addAttribute("provider", this.provider);
 		model.addAttribute("googleAnalyticId", this.provider.getGoogleAnalyticId());
 		model.addAttribute("googleTagManagementId", this.provider.getGoogleTagManagementId());
+		model.addAttribute("pardotTrackingActiveId", this.provider.getPardotTrackingActiveId());
+		model.addAttribute("pardotTrackingCodeId", this.provider.getPardotTrackingCodeId());
+		
+		logger.info("\t googleAnalyticId: {}", this.provider.getGoogleAnalyticId());
+		logger.info("\t googleTagManagementId: {}", this.provider.getGoogleTagManagementId());
+		logger.info("\t pardotTrackingActiveId: {}", this.provider.getPardotTrackingActiveId());
+		logger.info("\t pardotTrackingCodeId: {}", this.provider.getPardotTrackingCodeId());
+		
 		// Use to redirect the view, need the path here
-		return "view/provider";
+		return "view/analytic";
 	}
 
 }

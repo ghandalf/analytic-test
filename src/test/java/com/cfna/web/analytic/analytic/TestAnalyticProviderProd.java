@@ -7,8 +7,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import ca.ghandalf.web.analytic.AnalyticProvider;
@@ -32,7 +34,7 @@ public class TestAnalyticProviderProd {
 	
 	@Test
 	public void loadGoogeAnalyticIdValue() {
-		String expected = AnalyticProvider.GOOGLE_ANALYTIC_ID;
+		String expected = "UA-PROD-x";
 		String actual = provider.getGoogleAnalyticId();
 		Assert.assertEquals(expected, actual);
 		
@@ -43,7 +45,7 @@ public class TestAnalyticProviderProd {
 	
 	@Test
 	public void loadGoogleTagManagementId() {
-		String expected = AnalyticProvider.GOOGLE_TAG_MANAGEMENT_ID;
+		String expected = "TM-PROD-x";
 		String actual = provider.getGoogleTagManagementId();
 		Assert.assertEquals(expected, actual);
 		
@@ -54,7 +56,7 @@ public class TestAnalyticProviderProd {
 
 	@Test
 	public void loadPardotTrackingActiveId() {
-		String expected = AnalyticProvider.PARDOT_TRACKING_ACTIVE_ID;
+		String expected = "PA-PROD-x";
 		String actual = provider.getPardotTrackingActiveId();
 		Assert.assertEquals(expected, actual);
 		
@@ -65,7 +67,7 @@ public class TestAnalyticProviderProd {
 
 	@Test
 	public void loadPardotTrackingCodeId() {
-		String expected = AnalyticProvider.PARDOT_TRACKING_CODE_ID;
+		String expected = "PC-PROD-x";
 		String actual = provider.getPardotTrackingCodeId();
 		Assert.assertEquals(expected, actual);
 		

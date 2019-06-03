@@ -1,6 +1,5 @@
-
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> --%>
-<%-- <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %> --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,27 +9,19 @@
     </head>
     <body>
         <h2>Provider called</h2>
-        	<br>
-			Provider class: ${provider}
-			<br>
-			GoogleAnalyticId: ${googleAnalyticId}
-			<br>
-			GoogleTagManagementId: ${googleTagManagementId}        
-<%-- 		<c:set var = "googleAnalyticId" scope = "session" value="${googleAnalyticId}"></c:set> --%>
-<%-- 		<c:out value = "${googleAnalyticId}"/> --%>
-
-<%--         <c:set var = "googleAnalyticId" scope = "session" value="${provider.getGoogleAnalyticId()}"></c:set>
+		<c:set var = "analyticProvider" scope = "session" value="${analyticProvider}"></c:set>
+		<c:out value = "${analyticProvider}"/>
+		<br>
+		<c:set var = "googleAnalyticId" scope = "session" value="${googleAnalyticId}"></c:set>
 		<c:out value = "${googleAnalyticId}"/>
-		<c:out value = "${test}"/>
- --%><!--  
+		<br>
 		<c:set var = "googleTagManagementId" scope = "session" value="${googleTagManagementId}"></c:set>
 		<c:out value = "${googleTagManagementId}"/>
--->		
-<!-- 
-		<c:set value="${analyticProvider.getGoogleAnalyticId()}"></c:set>
-		<script type="text/javascript">
-        	console.log("Value is :: " + value);
-    	</script>
-	 -->	    
+		<br>
+		<c:set var = "pardotTrackingActiveId" scope = "session" value="${pardotTrackingActiveId}"></c:set>
+		<c:out value = "${pardotTrackingActiveId}"/>
+		<br>
+		<c:set var = "pardotTrackingCodeId" scope = "session" value="${pardotTrackingCodeId}"></c:set>
+		<c:out value = "${pardotTrackingCodeId}"/>
     </body>
 </html>
