@@ -47,7 +47,7 @@ public class ProviderServlet extends HttpServlet {
 		logger.info(".........request.getAttribut(pardotTrackingActiveId): {}", request.getAttribute("pardotTrackingActiveId"));
 		logger.info(".........request.getAttribut(pardotTrackingCodeId): {}\n", request.getAttribute("pardotTrackingCodeId"));
 
-		request.getRequestDispatcher("provider.jsp").forward(request, response);
+		request.getRequestDispatcher("view/provider.jsp").forward(request, response);
 //		request.getRequestDispatcher("view/provider.jsp").forward(request, response);
 //		request.getRequestDispatcher("jsp/analytic/provider.jsp").forward(request, response);
 //		response.sendRedirect("jsp/analytic/provider.jsp");

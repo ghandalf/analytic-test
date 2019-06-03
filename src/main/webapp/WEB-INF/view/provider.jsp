@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> --%>
+<%-- <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %> --%>
 
 <!DOCTYPE html>
 <html>
@@ -9,8 +10,14 @@
     </head>
     <body>
         <h2>Provider called</h2>
-		<c:set var = "googleAnalyticId" scope = "session" value="${googleAnalyticId}"></c:set>
-		<c:out value = "${googleAnalyticId}"/>
+        	<br>
+			Provider class: ${provider}
+			<br>
+			GoogleAnalyticId: ${googleAnalyticId}
+			<br>
+			GoogleTagManagementId: ${googleTagManagementId}        
+<%-- 		<c:set var = "googleAnalyticId" scope = "session" value="${googleAnalyticId}"></c:set> --%>
+<%-- 		<c:out value = "${googleAnalyticId}"/> --%>
 
 <%--         <c:set var = "googleAnalyticId" scope = "session" value="${provider.getGoogleAnalyticId()}"></c:set>
 		<c:out value = "${googleAnalyticId}"/>
