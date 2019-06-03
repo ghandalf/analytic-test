@@ -36,10 +36,10 @@ goto end
 :compile
 echo "Compile has been called..."
 
-:PROMPT
-set /P withtests=Compile With the tests (Y/N) default[N]?
-if /I %withtests% EQU Y set tests=
-if /I %withtests% EQU N set tests=-DskipTests
+rem :PROMPT
+rem set /P withtests=Compile With the tests (Y/N) default[N]?
+rem if /I %withtests% EQU Y set tests=
+rem if /I %withtests% EQU N set tests=-DskipTests
 call mvn clean install %tests%
 
 if %compile_run% (

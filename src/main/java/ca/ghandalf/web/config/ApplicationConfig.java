@@ -5,18 +5,18 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import ca.ghandalf.web.analytic.AnalyticProviderServlet;
+import ca.ghandalf.web.analytic.ProviderServlet;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"ca.ghandalf"})
 public class ApplicationConfig {
 
-//	@Autowired
-//	public AnalyticProviderServlet analyticProviderServlet;
+	@Autowired
+	public ProviderServlet providerServlet;
 
 //	@Autowired
-//	public An
+//	public AnalyticController analyticController;
 	
 //	@Bean
 //	public ServletRegistrationBean<HttpServlet> analyticProviderServlet() {
